@@ -62,7 +62,7 @@
         message = [NSString stringWithFormat:@"Error registering for push notifications: %@", error.description];
         NSLog(@"%@",message);
         } else {
-        message=@"Successfully registered for push Notification";
+        message=@"Successfully registered for push notifications";
         NSLog(@"%@",message);
                 }
         //show alert with registration status
