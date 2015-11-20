@@ -2,7 +2,7 @@
 ---
 The HelloPush sample contains an Objective-C project that you can use to learn the IBM Push Notification Service.  
 ### Downloading the samples
-Clone the samples from IBM DevOps Services with the following command:
+Clone the samples from Github with the following command:
 
 git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopush
 
