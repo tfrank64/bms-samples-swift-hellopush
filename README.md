@@ -1,13 +1,13 @@
-# iOS HelloPush application for IBM MobileFirst Services on IBM Bluemix
+# iOS helloPush application for IBM MobileFirst Services on IBM Bluemix
 ---
-This iOS HelloPush sample contains an Objective-C project that you can use to learn more about IBM Push Notification Service. 
+This iOS helloPush sample contains an Objective-C project that you can use to learn more about IBM Push Notification Service. 
 
-To use the HelloPush sample for Objective-C:
+Sections covered to use the helloPush sample for Objective-C:
 
-1. Download the samples 
-2. Configure the back end for your helloPush application
-3. Configure the front end in the HelloPush sample
-4. Run the iOS app
+1. Downloading the samples 
+2. Configuring the back end for your helloPush application
+3. Configuring the front end in the HelloPush sample
+4. Running the iOS app
 
 
 ### Before your begin 
@@ -63,7 +63,7 @@ return YES;
 
 
 ### Running the iOS app
-To run the helloPush sample successfully, run the sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
+For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
 
 When you run the application you will see a single view application with a "Register for Push" button. When you click this button the application will attempt to register the device and application to the Push Notification Service. The app uses an alert to display the registration status (successful or failed).
 
