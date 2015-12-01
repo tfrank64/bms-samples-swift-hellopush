@@ -13,9 +13,8 @@ To use the HelloPush sample for Objective-C:
 ### Before your begin 
 Before you start, make sure you have the following:
 
-A Bluemix account.
-
-APNs enabled push certificate (.p12 file) and the certificate password for your sandbox environment. For information about how to obtain a p.12 certificate, see Creating and configuring push credentials for APNs  at [Configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider).
+- A [Bluemix](http://bluemix.net) account.
+- APNs enabled push certificate (.p12 file) and the certificate password for your sandbox environment. For information about how to obtain a p.12 certificate, see Creating and configuring push credentials for APNs  at [Configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider).
 
 ### Downloading the samples
 Clone the samples from Github with the following command:
@@ -46,7 +45,7 @@ Create a mobile backend in the  Bluemix dashboard.
 
 
 Objective C:
-
+```objective-c
 (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 //initialize SDK with IBM Bluemix application ID and route
@@ -56,6 +55,7 @@ IMFClient *imfClient = [IMFClient sharedInstance];
 
 return YES;
 }
+```
 
 
 
