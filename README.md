@@ -4,10 +4,10 @@ This iOS helloPush sample contains an Objective-C project that you can use to le
 
 Sections covered to use the helloPush sample for Objective-C:
 
-1. [Downloading the helloPush sample](#downloading-the-helloPush-sample)
-2. [Configuring the back end for your helloPush application](#configuring-the-back-end-for-your-helloPush-application)
-3. [Configuring the front end in the HelloPush sample](#configuring-the-front-end-in-the-HelloPush-sample)
-4. [Running the iOS app](#running-the-iOS-app)
+1. [Downloading the helloPush sample](#downloading-the-hellopush-sample)
+2. [Configuring the back end for your helloPush application](#configuring-the-back-end-for-your-hellopush-application)
+3. [Configuring the front end in the HelloPush sample](#configuring-the-front-end-in-the-Hellopush-sample)
+4. [Running the iOS app](#running-the-ios-app)
 
 
 ### Before you begin
