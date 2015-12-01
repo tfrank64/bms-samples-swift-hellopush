@@ -36,7 +36,7 @@ Configure Push Notification service:
 2.  In the Apple Push Certificate section, select the Sandbox environment
 3.   Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
 
-### Configuring the front end in the HelloPush sample
+### Configuring the front end in the helloPush sample
 1. In a terminal, navigate to the **bms-samples-ios-hellopush** directory where the project was cloned
 2. Navigate to the helloPush_objective_c 
 3. If the Cocoapod client is not installed, install it using the following command: `sudo gem install cocoapods`
