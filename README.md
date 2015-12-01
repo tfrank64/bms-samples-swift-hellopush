@@ -1,6 +1,6 @@
 # iOS helloPush application for IBM MobileFirst Services on IBM Bluemix
 ---
-This iOS helloPush sample contains an Objective-C project that you can use to learn more about IBM Push Notification Service. 
+This iOS helloPush sample contains an Objective-C project that you can use to learn more about the IBM Push Notification Service. 
 
 Sections covered to use the helloPush sample for Objective-C:
 
