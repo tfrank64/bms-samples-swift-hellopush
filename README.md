@@ -10,7 +10,7 @@ Sections covered to use the helloPush sample for Objective-C:
 4. Running the iOS app
 
 
-### Before your begin 
+### Before you begin 
 Before you start, make sure you have the following:
 
 - A [Bluemix](http://bluemix.net) account.
