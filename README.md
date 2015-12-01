@@ -3,6 +3,7 @@
 This iOS HelloPush sample contains an Objective-C project that you can use to learn more about IBM Push Notification Service. 
 
 To use the HelloPush sample for Objective-C:
+
 1. Downloading the samples 
 2. Configuring the back end for your helloPush application
 3. Configure the front end in the HelloPush sample
@@ -12,7 +13,7 @@ To use the HelloPush sample for Objective-C:
 ### Before your begin 
 Before you start, make sure you have the following:
 A Bluemix account.
-APNs enabled push certificate (.p12 file) and the certificate password for your sandbox environment. For information about how to obtain a p.12 certificate, see Creating and configuring push credentials for APNs  at [Configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider)
+APNs enabled push certificate (.p12 file) and the certificate password for your sandbox environment. For information about how to obtain a p.12 certificate, see Creating and configuring push credentials for APNs  at [Configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider).
 
 ### Downloading the samples
 Clone the samples from Github with the following command:
@@ -23,6 +24,7 @@ git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopu
 Before you can run the helloPush application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant®NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
 
 Create a mobile backend in the  Bluemix dashboard. 
+
 1.	In the Boilerplates section Bluemix catalog, click MobileFirst Services Starter.
 2.	Enter a name and host for your mobile backend and click Create.
 3.	Click Finish.
