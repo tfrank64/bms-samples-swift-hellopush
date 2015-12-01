@@ -4,8 +4,8 @@ This iOS HelloPush sample contains an Objective-C project that you can use to le
 
 To use the HelloPush sample for Objective-C:
 
-1. Downloading the samples 
-2. Configuring the back end for your helloPush application
+1. Download the samples 
+2. Configure the back end for your helloPush application
 3. Configure the front end in the HelloPush sample
 4. Run the iOS app
 
@@ -24,14 +24,17 @@ git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopu
 ### Configuring the back end for your helloPush application
 Before you can run the helloPush application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant®NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
 
-Create a mobile backend in the  Bluemix dashboard. 
+Create a mobile backend in the  Bluemix dashboard:
 
 1.	In the Boilerplates section Bluemix catalog, click MobileFirst Services Starter.
 2.	Enter a name and host for your mobile backend and click Create.
-3.	Click Finish.
-4.	In the IBM Push Notifications Dashboard, go to the Configuration tab to configure your Push Notification Service.  
-5.  In the Apple Push Certificate section, select the Sandbox environment
-6.   Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
+3.	Click **Finish**.
+
+Configure Push Notification service:
+
+1.	In the IBM Push Notifications Dashboard, go to the Configuration tab to configure your Push Notification Service.  
+2.  In the Apple Push Certificate section, select the Sandbox environment
+3.   Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
 
 ### Configuring the front end in the HelloPush sample
 1. In a terminal, navigate to the **bms-samples-ios-hellopush** directory where the project was cloned
