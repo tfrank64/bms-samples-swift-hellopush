@@ -34,7 +34,7 @@ Configure Push Notification service:
 
 1.	In the IBM Push Notifications Dashboard, go to the Configuration tab to configure your Push Notification Service.  
 2.  In the Apple Push Certificate section, select the Sandbox environment
-3.   Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
+3.  Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
 
 ### Configuring the front end in the helloPush sample
 1. In a terminal, navigate to the **bms-samples-ios-hellopush** directory where the project was cloned
