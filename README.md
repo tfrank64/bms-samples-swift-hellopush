@@ -40,7 +40,7 @@ Configure Push Notification service:
 1. In a terminal, navigate to the **bms-samples-ios-hellopush** directory where the project was cloned
 2. Navigate to the helloPush_objective_c 
 3. If the Cocoapod client is not installed, install it using the following command: `sudo gem install cocoapods`
-4.  If the Cocoapod repository is not configured, configure it using the following command: `pod setup`
+4. If the Cocoapod repository is not configured, configure it using the following command: `pod setup`
 5. Run the `pod install` command to download and install dependencies.
 6. Open the Xcode workspace: `open helloPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
 7. Open the **AppDelegate.m** and add the corresponding **ApplicationRoute** and
