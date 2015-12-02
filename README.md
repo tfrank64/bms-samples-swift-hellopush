@@ -26,7 +26,7 @@ Before you can run the helloPush application, you must set up an app on Bluemix.
 
 Create a mobile backend in the  Bluemix dashboard:
 
-1.	In the Boilerplates section Bluemix catalog, click MobileFirst Services Starter.
+1.	In the Boilerplates section of the Bluemix catalog, click MobileFirst Services Starter.
 2.	Enter a name and host for your mobile backend and click Create.
 3.	Click **Finish**.
 
@@ -38,10 +38,10 @@ Configure Push Notification service:
 
 ### Configuring the front end in the helloPush sample
 1. In a terminal, navigate to the **bms-samples-ios-hellopush** directory where the project was cloned
-2. Navigate to the helloPush_objective_c 
+2. Navigate to the helloPush_objective_c folder
 3. If the Cocoapod client is not installed, install it using the following command: `sudo gem install cocoapods`
 4. If the Cocoapod repository is not configured, configure it using the following command: `pod setup`
-5. Run the `pod install` command to download and install dependencies.
+5. Run the `pod install` command to download and install the required dependencies.
 6. Open the Xcode workspace: `open helloPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
 7. Open the **AppDelegate.m** and add the corresponding **ApplicationRoute** and
 **ApplicationID** in the application **didFinishLaunchingWithOptions** method:
@@ -65,7 +65,7 @@ return YES;
 ### Running the iOS app
 For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
 
-When you run the application you will see a single view application with a "Register for Push" button. When you click this button the application will attempt to register the device and application to the Push Notification Service. The app uses an alert to display the registration status (successful or failed).
+When you run the application, you will see a single view application with a "Register for Push" button. When you click this button the application will attempt to register the device and application to the Push Notification Service. The app uses an alert to display the registration status (successful or failed).
 
 When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content. The application uses the **ApplicationRoute** and **ApplicationID** specified in the AppDelegate to connect to the IBM Push Notification Service on Bluemix. The registration status and other information is displayed  in the Xcode Console 
 
