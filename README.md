@@ -4,10 +4,10 @@ This iOS helloPush sample contains an Objective-C project that you can use to le
 
 Use the following steps to configure the helloPush sample for Objective-C:
 
-1. [Downloading the helloPush sample](#downloading-the-hellopush-sample)
-2. [Configuring the mobile backend for your helloPush application](#configuring-the-mobile-backend-for-your-hellopush-application)
-3. [Configuring the front end in the helloPush sample](#configuring-the-front-end-in-the-hellopush-sample)
-4. [Running the iOS app](#running-the-ios-app)
+1. [Download the helloPush sample](#download-the-hellopush-sample)
+2. [Configure the mobile backend for your helloPush application](#configure-the-mobile-backend-for-your-hellopush-application)
+3. [Configure the front end in the helloPush sample](#configure-the-front-end-in-the-hellopush-sample)
+4. [Run the iOS app](#run-the-ios-app)
 
 
 ### Before you begin
@@ -16,12 +16,12 @@ Before you start, make sure you have the following:
 - A [Bluemix](http://bluemix.net) account.
 - APNs enabled push certificate (.p12 file) and the certificate password for your sandbox environment. For information about how to obtain a p.12 certificate, see the [configuring credentials for a notification provider](https://www.ng.bluemix.net/docs/services/mobilepush/index.html#push_provider) section in the Push documentation.
 
-### Downloading the helloPush sample
+### Download the helloPush sample
 Clone the sample from Github with the following command:
 
 ```git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopush```
 
-### Configuring the mobile backend for your helloPush application
+### Configure the mobile backend for your helloPush application
 Before you can run the helloPush application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant®NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
 
 Create a mobile backend in the  Bluemix dashboard:
@@ -36,7 +36,7 @@ Configure Push Notification service:
 2.  In the Apple Push Certificate section, select the Sandbox environment
 3.  Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
 
-### Configuring the front end in the helloPush sample
+### Configure the front end in the helloPush sample
 1. In a terminal, navigate to the `bms-samples-ios-hellopush` directory where the project was cloned
 2. Navigate to the `helloPush_objective_c` folder
 3. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
@@ -62,7 +62,7 @@ return YES;
 
 
 
-### Running the iOS app
+### Run the iOS app
 For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
 
 When you run the application, you will see a single view application with a "Register for Push" button. When you click this button the application will attempt to register the device and application to the Push Notification Service. The app uses an alert to display the registration status (successful or failed).
