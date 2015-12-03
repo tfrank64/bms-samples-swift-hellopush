@@ -32,7 +32,7 @@ Create a mobile backend in the  Bluemix dashboard:
 
 Configure Push Notification service:
 
-1.	In the IBM Push Notifications Dashboard, go to the Configuration tab to configure your Push Notification Service.  
+1.	In the IBM Push Notifications Dashboard, go to the **Configuration** tab to configure your Push Notification Service.  
 2.  In the Apple Push Certificate section, select the Sandbox environment
 3.  Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
 
