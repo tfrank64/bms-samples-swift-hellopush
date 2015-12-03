@@ -1,11 +1,11 @@
-# iOS helloPush application for IBM MobileFirst Services on IBM Bluemix
+# iOS helloPush Sample Application for Bluemix Mobile Services
 ---
 This iOS helloPush sample contains an Objective-C project that you can use to learn more about the IBM Push Notification Service. 
 
-Sections covered to use the helloPush sample for Objective-C:
+Use the following steps to configure the helloPush sample for Objective-C:
 
 1. [Downloading the helloPush sample](#downloading-the-hellopush-sample)
-2. [Configuring the back end for your helloPush application](#configuring-the-back-end-for-your-hellopush-application)
+2. [Configuring the mobile backend for your helloPush application](#configuring-the-mobile-backend-for-your-hellopush-application)
 3. [Configuring the front end in the helloPush sample](#configuring-the-front-end-in-the-hellopush-sample)
 4. [Running the iOS app](#running-the-ios-app)
 
@@ -19,9 +19,9 @@ Before you start, make sure you have the following:
 ### Downloading the helloPush sample
 Clone the sample from Github with the following command:
 
-git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopush
+```git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-ios-hellopush```
 
-### Configuring the back end for your helloPush application
+### Configuring the mobile backend for your helloPush application
 Before you can run the helloPush application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant®NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
 
 Create a mobile backend in the  Bluemix dashboard:
@@ -37,14 +37,14 @@ Configure Push Notification service:
 3.  Upload a valid APNs enabled push certificate (.p12 file), then enter the password associated with the certificate.
 
 ### Configuring the front end in the helloPush sample
-1. In a terminal, navigate to the **bms-samples-ios-hellopush** directory where the project was cloned
-2. Navigate to the helloPush_objective_c folder
-3. If the Cocoapod client is not installed, install it using the following command: `sudo gem install cocoapods`
-4. If the Cocoapod repository is not configured, configure it using the following command: `pod setup`
+1. In a terminal, navigate to the `bms-samples-ios-hellopush` directory where the project was cloned
+2. Navigate to the `helloPush_objective_c` folder
+3. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
+4. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
 5. Run the `pod install` command to download and install the required dependencies.
 6. Open the Xcode workspace: `open helloPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
-7. Open the **AppDelegate.m** and add the corresponding **ApplicationRoute** and
-**ApplicationID** in the application **didFinishLaunchingWithOptions** method:
+7. Open the `AppDelegate.m` and add the corresponding **ApplicationRoute** and
+**ApplicationID** in the application `didFinishLaunchingWithOptions` method:
 
 
 Objective C:
@@ -70,7 +70,7 @@ When you run the application, you will see a single view application with a "Reg
 When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content. The application uses the **ApplicationRoute** and **ApplicationID** specified in the AppDelegate to connect to the IBM Push Notification Service on Bluemix. The registration status and other information is displayed  in the Xcode Console 
 
 
-**Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog:
+**Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog entry:
 
 [Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/)
 
