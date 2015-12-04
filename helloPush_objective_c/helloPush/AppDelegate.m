@@ -19,9 +19,6 @@
     // Override point for customization after application launch.
     //initialize SDK with IBM Bluemix application ID and route
     //TODO: Please Enter a valid ApplicationRoute for initializaWithBackendRoute and a valid ApplicationId for backenGUID
-    //Example:
-    //IMFClient *imfClient = [IMFClient sharedInstance];
-    //[imfClient initializeWithBackendRoute:@"<APPLICATION_ROUTE>" backendGUID:@"<APPLICATION_GUID>"];
     
     IMFClient *imfClient = [IMFClient sharedInstance];
     [imfClient initializeWithBackendRoute:@"<APPLICATION_ROUTE>" backendGUID:@"<APPLICATION_ID>"];
