@@ -38,16 +38,17 @@ Configure Push Notification service:
 
 ### Configure the front end in the helloPush sample
 1. In a terminal, navigate to the `bms-samples-ios-hellopush` directory where the project was cloned
-2. Navigate to the `helloPush_objective_c` folder
-3. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
-4. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
-5. Run the `pod install` command to download and install the required dependencies.
-6. Open the Xcode workspace: `open helloPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
-7. Open the `AppDelegate.m` and add the corresponding **ApplicationRoute** and
-**ApplicationID** in the application `didFinishLaunchingWithOptions` method:
-
 
 Objective C:
+
+1. Navigate to the `helloPush_objective_c` folder
+2. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
+3. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
+4. Run the `pod install` command to download and install the required dependencies.
+5. Open the Xcode workspace: `open helloPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+6. Open the `AppDelegate.m` and add the corresponding **ApplicationRoute** and
+**ApplicationID** in the application `didFinishLaunchingWithOptions` method:
+
 ```objective-c
 (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
@@ -60,7 +61,31 @@ return YES;
 }
 ```
 
+Swift :
 
+1. Navigate to the `helloPush_swift` folder
+2. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
+3. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
+4. Run the `pod install` command to download and install the required dependencies.
+5. Open the Xcode workspace: `open TestPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+6. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
+**APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
+
+Follow the ReadMe in `https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-push/tree/development`
+
+```
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+// Override point for customization after application launch.
+
+let myBMSClient = BMSClient.sharedInstance
+
+myBMSClient.initializeWithBluemixAppRoute("APPROUTE", bluemixAppGUID: "APPGUID", bluemixRegion: "APPREGION")
+
+myBMSClient.defaultRequestTimeout = 10.0 // seconds
+
+return true
+}
+```
 
 ### Run the iOS app
 For push notifications to work successfully, you must run the helloPush sample on a physical iOS device. You will also need a valid APNs enabled bundle id, provisioning profile, and development certificate.
