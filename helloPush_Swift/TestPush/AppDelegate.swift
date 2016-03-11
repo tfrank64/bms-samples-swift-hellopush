@@ -95,8 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     }
                                     
                                 })
-                                
-                                
                             }
                             else {
                                 
@@ -104,7 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 
                                 self.sendNotifToDisplayResponse( "Error during subscribing tags \n  - status code: \(statusCode) \n Error :\(error) \n")
                             }
-                            
                         })
                     }
                     else {
@@ -196,7 +193,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 self.sendNotifToDisplayResponse( "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
             }
-            
         }
         
     }
