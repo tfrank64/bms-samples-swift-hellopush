@@ -1,14 +1,20 @@
-//
-//  AppDelegate.swift
-//  TestPush
-//
-//  Created by Anantha Krishnan K G on 16/02/16.
-//  Copyright © 2016 IBM Corp. All rights reserved.
-//
+/*
+*     Copyright 2015 IBM Corp.
+*     Licensed under the Apache License, Version 2.0 (the "License");
+*     you may not use this file except in compliance with the License.
+*     You may obtain a copy of the License at
+*     http://www.apache.org/licenses/LICENSE-2.0
+*     Unless required by applicable law or agreed to in writing, software
+*     distributed under the License is distributed on an "AS IS" BASIS,
+*     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*     See the License for the specific language governing permissions and
+*     limitations under the License.
+*/
 
 import UIKit
 import BMSCore
 import BMSPush
+//import BMSAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,16 +24,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         let myBMSClient = BMSClient.sharedInstance
         
-        myBMSClient.initializeWithBluemixAppRoute("<APPNAME>", bluemixAppGUID: "<APPID>", bluemixRegion: "<HOSTED REGION>")
+        myBMSClient.initializeWithBluemixAppRoute("ananthaapp123.stage1.mybluemix.net", bluemixAppGUID: "f5b7a893-f323-4779-9694-180b006b06fe", bluemixRegion: ".stage1.ng.bluemix.net")
         
         myBMSClient.defaultRequestTimeout = 10.0 // seconds
         
+       /*
+        let bundleInfoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
+        let appName = bundleInfoDict["CFBundleName"] as! String
+        
+        Analytics.initializeForBluemix(appName: appName, apiKey: "1234", deviceEvents: DeviceEvent.LIFECYCLE)
+        
+        Analytics.enabled = true
+        Logger.logStoreEnabled = true
+        Logger.sdkDebugLoggingEnabled = true
+        
+        Analytics.userIdentity = "Some user name"
+        */
         return true
     }
-    
     
     func registerForPush () {
         
@@ -36,102 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerForRemoteNotifications()
         
     }
-    
-    func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
-        
-        let push =  BMSPushClient.sharedInstance
-        
-        // MARK:    REGISTERING DEVICE
-        
-        push.registerDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
-            
-            if error.isEmpty {
-                
-                print( "Response during device registration : \(response)")
-                
-                print( "status code during device registration : \(statusCode)")
-                
-                self.sendNotifToDisplayResponse("Response during device registration json: \(response)")
-                
-                // MARK:    RETRIEVING AVAILABLE TAGS
-                
-                push.retrieveAvailableTagsWithCompletionHandler({ (response, statusCode, error) -> Void in
-                    
-                    if error.isEmpty {
-                        
-                        print( "Response during retrieve tags : \(response)")
-                        
-                        print( "status code during retrieve tags : \(statusCode)")
-                        
-                        self.sendNotifToDisplayResponse("Response during retrive tags: \(response.description)")
-                        
-                        // MARK:    SUBSCRIBING TO AVAILABLE TAGS
-                        push.subscribeToTags(response, completionHandler: { (response, statusCode, error) -> Void in
-                            
-                            if error.isEmpty {
-                                
-                                print( "Response during Subscribing to tags : \(response.description)")
-                                
-                                print( "status code during Subscribing tags : \(statusCode)")
-                                
-                                self.sendNotifToDisplayResponse("Response during Subscribing tags: \(response.description)")
-                                
-                                // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
-                                push.retrieveSubscriptionsWithCompletionHandler({ (response, statusCode, error) -> Void in
-                                    
-                                    if error.isEmpty {
-                                        
-                                        print( "Response during retrieving subscribed tags : \(response.description)")
-                                        
-                                        print( "status code during retrieving subscribed tags : \(statusCode)")
-                                        
-                                        self.sendNotifToDisplayResponse("Response during retrieving subscribed tags: \(response.description)")
-                                    }
-                                    else {
-                                        
-                                        print( "Error during retrieving subscribed tags \(error) ")
-                                        
-                                        self.sendNotifToDisplayResponse( "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                                    }
-                                    
-                                })
-                            }
-                            else {
-                                
-                                print( "Error during subscribing tags \(error) ")
-                                
-                                self.sendNotifToDisplayResponse( "Error during subscribing tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                            }
-                        })
-                    }
-                    else {
-                        print( "Error during retrieve tags \(error) ")
-                        
-                        self.sendNotifToDisplayResponse( "Error during retrieve tags \n  - status code: \(statusCode) \n Error :\(error) \n")
-                    }
-                    
-                    
-                })
-            }
-            else{
-                print( "Error during device registration \(error) ")
-                
-                self.sendNotifToDisplayResponse( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
-            }
-        }
-    }
-    
-    //Called if unable to register for APNS.
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        
-        let message:NSString = "Error registering for push notifications: "+error.description
-        
-        self.showAlert("Registering for notifications", message: message)
-        
-        
-        
-    }
-    
     func unRegisterPush () {
         
         // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
@@ -193,9 +113,166 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 self.sendNotifToDisplayResponse( "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
             }
+            
         }
         
     }
+    
+    func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
+        
+        let push =  BMSPushClient.sharedInstance
+        
+        // MARK:    REGISTERING DEVICE
+        
+        push.registerDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
+            
+            if error.isEmpty {
+                
+                print( "Response during device registration : \(response)")
+                
+                print( "status code during device registration : \(statusCode)")
+                
+                self.sendNotifToDisplayResponse("Response during device registration json: \(response)")
+                
+                // MARK:    RETRIEVING AVAILABLE TAGS
+                
+                push.retrieveAvailableTagsWithCompletionHandler({ (response, statusCode, error) -> Void in
+                    
+                    if error.isEmpty {
+                        
+                        print( "Response during retrive tags : \(response)")
+                        
+                        print( "status code during retrieve tags : \(statusCode)")
+                        
+                        self.sendNotifToDisplayResponse("Response during retrive tags: \(response.description)")
+                        
+                        // MARK:    SUBSCRIBING TO AVAILABLE TAGS
+                        push.subscribeToTags(response, completionHandler: { (response, statusCode, error) -> Void in
+                            
+                            if error.isEmpty {
+                                
+                                print( "Response during Subscribing to tags : \(response.description)")
+                                
+                                print( "status code during Subscribing tags : \(statusCode)")
+                                
+                                self.sendNotifToDisplayResponse("Response during Subscribing tags: \(response.description)")
+                                
+                                // MARK:  RETRIEVING AVAILABLE SUBSCRIPTIONS
+                                push.retrieveSubscriptionsWithCompletionHandler({ (response, statusCode, error) -> Void in
+                                    
+                                    if error.isEmpty {
+                                        
+                                        print( "Response during retrieving subscribed tags : \(response.description)")
+                                        
+                                        print( "status code during retrieving subscribed tags : \(statusCode)")
+                                        
+                                        self.sendNotifToDisplayResponse("Response during retrieving subscribed tags: \(response.description)")
+                                    }
+                                    else {
+                                        
+                                        print( "Error during retrieving subscribed tags \(error) ")
+                                        
+                                        self.sendNotifToDisplayResponse( "Error during retrieving subscribed tags \n  - status code: \(statusCode) \n Error :\(error) \n")
+                                    }
+                                    
+                                })
+                                
+                                
+                            }
+                            else {
+                                
+                                print( "Error during subscribing tags \(error) ")
+                                
+                                self.sendNotifToDisplayResponse( "Error during subscribing tags \n  - status code: \(statusCode) \n Error :\(error) \n")
+                            }
+                            
+                        })
+                    }
+                    else {
+                        print( "Error during retrieve tags \(error) ")
+                        
+                        self.sendNotifToDisplayResponse( "Error during retrieve tags \n  - status code: \(statusCode) \n Error :\(error) \n")
+                    }
+                    
+                    
+                })
+            }
+            else{
+                print( "Error during device registration \(error) ")
+                
+                self.sendNotifToDisplayResponse( "Error during device registration \n  - status code: \(statusCode) \n Error :\(error) \n")
+            }
+        }
+    }
+    
+    //Called if unable to register for APNS.
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        
+        let message:NSString = "Error registering for push notifications: "+error.description
+        
+        self.showAlert("Registering for notifications", message: message)
+        
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        let payLoad = ((((userInfo as NSDictionary).valueForKey("aps") as! NSDictionary).valueForKey("alert") as! NSDictionary).valueForKey("body") as! NSString)
+        
+        self.showAlert("Recieved Push notifications", message: payLoad)
+        
+        let push =  BMSPushClient.sharedInstance
+        
+        push.application(UIApplication.sharedApplication(), didReceiveRemoteNotification: userInfo)
+        
+        func completionHandler(sendType: String) -> MfpCompletionHandler {
+            return {
+                (response: Response?, error: NSError?) -> Void in
+                if let response = response {
+                    print("\n\(sendType) sent successfully: " + String(response.isSuccessful))
+                    print("Status code: " + String(response.statusCode))
+                    if let responseText = response.responseText {
+                        print("Response text: " + responseText)
+                    }
+                    print("\n")
+                }
+            }
+        }
+        /*
+        Logger.send(completionHandler: completionHandler("Logs"))
+        
+        Analytics.send(completionHandler: completionHandler("Analytics"))
+        */
+    }
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        let payLoad = ((((userInfo as NSDictionary).valueForKey("aps") as! NSDictionary).valueForKey("alert") as! NSDictionary).valueForKey("body") as! NSString)
+        
+        self.showAlert("Recieved Push notifications", message: payLoad)
+        
+        let push =  BMSPushClient.sharedInstance
+        
+        push.application(UIApplication.sharedApplication(), didReceiveRemoteNotification: userInfo)
+        
+        func completionHandler(sendType: String) -> MfpCompletionHandler {
+            return {
+                (response: Response?, error: NSError?) -> Void in
+                if let response = response {
+                    print("\n\(sendType) sent successfully: " + String(response.isSuccessful))
+                    print("Status code: " + String(response.statusCode))
+                    if let responseText = response.responseText {
+                        print("Response text: " + responseText)
+                    }
+                    print("\n")
+                }
+            }
+        }
+        /*
+        Logger.send(completionHandler: completionHandler("Logs"))
+        
+        Analytics.send(completionHandler: completionHandler("Analytics"))
+        */
+    }
+    
     func sendNotifToDisplayResponse (responseValue:String){
         
         responseText = responseValue
@@ -238,6 +315,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    
 }
-
