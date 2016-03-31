@@ -14,7 +14,6 @@
 import UIKit
 import BMSCore
 import BMSPush
-//import BMSAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,18 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         myBMSClient.defaultRequestTimeout = 10.0 // seconds
         
-       /*
-        let bundleInfoDict: NSDictionary = NSBundle.mainBundle().infoDictionary!
-        let appName = bundleInfoDict["CFBundleName"] as! String
-        
-        Analytics.initializeForBluemix(appName: appName, apiKey: "1234", deviceEvents: DeviceEvent.LIFECYCLE)
-        
-        Analytics.enabled = true
-        Logger.logStoreEnabled = true
-        Logger.sdkDebugLoggingEnabled = true
-        
-        Analytics.userIdentity = "Some user name"
-        */
+      
         return true
     }
     
@@ -214,35 +202,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
-        let payLoad = ((((userInfo as NSDictionary).valueForKey("aps") as! NSDictionary).valueForKey("alert") as! NSDictionary).valueForKey("body") as! NSString)
-        
-        self.showAlert("Recieved Push notifications", message: payLoad)
-        
-        let push =  BMSPushClient.sharedInstance
-        
-        push.application(UIApplication.sharedApplication(), didReceiveRemoteNotification: userInfo)
-        
-        func completionHandler(sendType: String) -> MfpCompletionHandler {
-            return {
-                (response: Response?, error: NSError?) -> Void in
-                if let response = response {
-                    print("\n\(sendType) sent successfully: " + String(response.isSuccessful))
-                    print("Status code: " + String(response.statusCode))
-                    if let responseText = response.responseText {
-                        print("Response text: " + responseText)
-                    }
-                    print("\n")
-                }
-            }
-        }
-        /*
-        Logger.send(completionHandler: completionHandler("Logs"))
-        
-        Analytics.send(completionHandler: completionHandler("Analytics"))
-        */
-    }
+    
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         let payLoad = ((((userInfo as NSDictionary).valueForKey("aps") as! NSDictionary).valueForKey("alert") as! NSDictionary).valueForKey("body") as! NSString)
@@ -253,24 +213,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         push.application(UIApplication.sharedApplication(), didReceiveRemoteNotification: userInfo)
         
-        func completionHandler(sendType: String) -> MfpCompletionHandler {
-            return {
-                (response: Response?, error: NSError?) -> Void in
-                if let response = response {
-                    print("\n\(sendType) sent successfully: " + String(response.isSuccessful))
-                    print("Status code: " + String(response.statusCode))
-                    if let responseText = response.responseText {
-                        print("Response text: " + responseText)
-                    }
-                    print("\n")
-                }
-            }
-        }
-        /*
-        Logger.send(completionHandler: completionHandler("Logs"))
-        
-        Analytics.send(completionHandler: completionHandler("Analytics"))
-        */
     }
     
     func sendNotifToDisplayResponse (responseValue:String){
