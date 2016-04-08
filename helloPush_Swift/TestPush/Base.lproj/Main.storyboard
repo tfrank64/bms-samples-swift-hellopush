@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.63332280360000004" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15824582700000001" green="0.41983780269999998" blue="0.51497395830000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="F6i-st-tEg" firstAttribute="top" secondItem="AZQ-lt-Ntk" secondAttribute="bottom" constant="10" id="0KL-Y6-0mg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F6i-st-tEg" secondAttribute="bottom" constant="20" id="7yB-Vn-eTO"/>
