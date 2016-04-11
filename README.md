@@ -48,7 +48,7 @@ Swift :
 6. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
 **APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
-Follow the ReadMe in `(https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush/tree/development)`
+Follow the ReadMe in [Pus Example Readme](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush/tree/development)
 
 ```
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
