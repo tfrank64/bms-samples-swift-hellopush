@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1458353A1CC5367800788110 /* BMSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145835391CC5367800788110 /* BMSCore.framework */; };
+		1458353C1CC5367B00788110 /* BMSAnalyticsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1458353B1CC5367A00788110 /* BMSAnalyticsAPI.framework */; };
+		1458353E1CC5367D00788110 /* BMSPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1458353D1CC5367D00788110 /* BMSPush.framework */; };
 		56B431921C72E7A300AE421C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B431911C72E7A300AE421C /* AppDelegate.swift */; };
 		56B431941C72E7A300AE421C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B431931C72E7A300AE421C /* ViewController.swift */; };
 		56B431971C72E7A300AE421C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B431951C72E7A300AE421C /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145835391CC5367800788110 /* BMSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BMSCore.framework; path = Carthage/Build/iOS/BMSCore.framework; sourceTree = "<group>"; };
+		1458353B1CC5367A00788110 /* BMSAnalyticsAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BMSAnalyticsAPI.framework; path = Carthage/Build/iOS/BMSAnalyticsAPI.framework; sourceTree = "<group>"; };
+		1458353D1CC5367D00788110 /* BMSPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BMSPush.framework; path = Carthage/Build/iOS/BMSPush.framework; sourceTree = "<group>"; };
 		56B4318E1C72E7A300AE421C /* TestPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B431911C72E7A300AE421C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B431931C72E7A300AE421C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,16 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1458353A1CC5367800788110 /* BMSCore.framework in Frameworks */,
+				1458353C1CC5367B00788110 /* BMSAnalyticsAPI.framework in Frameworks */,
+				1458353E1CC5367D00788110 /* BMSPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1458353F1CC5368700788110 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				1458353D1CC5367D00788110 /* BMSPush.framework */,
+				1458353B1CC5367A00788110 /* BMSAnalyticsAPI.framework */,
+				145835391CC5367800788110 /* BMSCore.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
 		56B431851C72E7A300AE421C = {
 			isa = PBXGroup;
 			children = (
 				56B431901C72E7A300AE421C /* TestPush */,
+				1458353F1CC5368700788110 /* Dependencies */,
 				56B4318F1C72E7A300AE421C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -249,6 +269,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestPush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.hellopush;
@@ -260,6 +284,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestPush/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.hellopush;
