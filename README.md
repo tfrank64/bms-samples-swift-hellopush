@@ -38,15 +38,27 @@ Configure Push Notification service:
 
 ### Configure the front end in the helloPush sample
 
-Swift :
+    Navigate to the `helloPush_swift` folder and do the folllowing,
 
-1. Navigate to the `helloPush_swift` folder
+#### Cocoa Pods:
+
 2. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
 3. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
 4. Run the `pod install` command to download and install the required dependencies.
 5. Open the Xcode workspace: `open TestPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
 6. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
 **APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
+
+
+#### Carthage :
+
+To install BMSPush using Carthage, add it to your Cartfile: 
+
+```ogdl
+github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
+```
+
+Then run the `carthage update` command. Once the build is finished, drag `BMSPush.framework`, `BMSCore.framework` and `BMSAnalyticsAPI.framework` into your Xcode project. 
 
 Follow the ReadMe in [Push Example Readme](https://github.com/ibm-bluemix-mobile-services/bms-samples-swift-hellopush/tree/development)
 
@@ -76,5 +88,17 @@ When a push notification is received and the application is in the foreground, a
 
 [Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/)
 
-### License
-This package contains sample code provided in source code form. The samples are licensed under the under the Apache License, Version 2.0 (the "License"). You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 and may also view the license in the license.txt file within this package. Also see the notices.txt file within this package for additional notices.
+=======================
+Copyright 2016 IBM Corp.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
