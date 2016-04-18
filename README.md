@@ -38,7 +38,7 @@ Configure Push Notification service:
 
 ### Configure the front end in the helloPush sample
 
-    Navigate to the `helloPush_swift` folder and do the folllowing,
+Navigate to the `helloPush_swift` folder and do the folllowing,
 
 #### Cocoa Pods:
 
