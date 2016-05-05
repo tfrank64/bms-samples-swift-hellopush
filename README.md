@@ -1,8 +1,8 @@
 # iOS helloPush Sample Application for Bluemix Mobile Services
 ---
-This iOS helloPush sample contains an Objective-C project that you can use to learn more about the IBM Push Notification Service. 
+This iOS helloPush sample contains an Swift project that you can use to learn more about the IBM Push Notification Service. 
 
-Use the following steps to configure the helloPush sample for Objective-C:
+Use the following steps to configure the helloPush sample for Swift:
 
 1. [Download the helloPush sample](#download-the-hellopush-sample)
 2. [Configure the mobile backend for your helloPush application](#configure-the-mobile-backend-for-your-hellopush-application)
