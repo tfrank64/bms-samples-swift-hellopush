@@ -60,7 +60,7 @@ github "ibm-bluemix-mobile-services/bms-clientsdk-swift-push"
 
 Then run the `carthage update` command. Once the build is finished, drag `BMSPush.framework`, `BMSCore.framework` and `BMSAnalyticsAPI.framework` into your Xcode project. 
 
-#### setup initialization
+#### Setup initialization
 ```
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 // Override point for customization after application launch.
