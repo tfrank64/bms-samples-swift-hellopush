@@ -1,15 +1,15 @@
 /*
-*     Copyright 2015 IBM Corp.
-*     Licensed under the Apache License, Version 2.0 (the "License");
-*     you may not use this file except in compliance with the License.
-*     You may obtain a copy of the License at
-*     http://www.apache.org/licenses/LICENSE-2.0
-*     Unless required by applicable law or agreed to in writing, software
-*     distributed under the License is distributed on an "AS IS" BASIS,
-*     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-*     See the License for the specific language governing permissions and
-*     limitations under the License.
-*/
+ *     Copyright 2016 IBM Corp.
+ *     Licensed under the Apache License, Version 2.0 (the "License");
+ *     you may not use this file except in compliance with the License.
+ *     You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
+ */
 
 import UIKit
 import BMSCore
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         myBMSClient.defaultRequestTimeout = 10.0 // seconds
         
-      
+        
         return true
     }
     
@@ -197,7 +197,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let message:NSString = "Error registering for push notifications: "+error.description
         
-        self.showAlert("Registering for notifications", message: message)
+        self.showAlert("Registering for notifications", message: message, payload: "")
         
     }
     
@@ -205,8 +205,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         let payLoad = ((((userInfo as NSDictionary).valueForKey("aps") as! NSDictionary).valueForKey("alert") as! NSDictionary).valueForKey("body") as! NSString)
+        var userPayload = String();
         
-        self.showAlert("Recieved Push notifications", message: payLoad)
+        let additionalPayload = (userInfo as NSDictionary).valueForKey("payload")
+        userPayload = additionalPayload!.description
+        
+        self.showAlert("Recieved Push notifications", message: payLoad, payload: userPayload)
+        
         
         let push =  BMSPushClient.sharedInstance
         
@@ -221,10 +226,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func showAlert (title:NSString , message:NSString){
+    func showAlert (title:NSString , message:NSString , payload:NSString){
         
         // create the alert
-        let alert = UIAlertController.init(title: title as String, message: message as String, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let alertMessage = "\(message)\n \(payload)"
+        let alert = UIAlertController.init(title: title as String, message: alertMessage as String, preferredStyle: UIAlertControllerStyle.Alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
