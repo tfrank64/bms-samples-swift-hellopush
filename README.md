@@ -8,6 +8,7 @@ Use the following steps to configure the helloPush sample for Swift:
 2. [Configure the mobile backend for your helloPush application](#configure-the-mobile-backend-for-your-hellopush-application)
 3. [Configure the front end in the helloPush sample](#configure-the-front-end-in-the-hellopush-sample)
 4. [Run the iOS app](#run-the-ios-app)
+5. [Send Analytics data to push monitoring dashboard](#Send-data-to-push-monitoring-dashboard-using-analytics-SDK)
 
 
 ### Before you begin
@@ -42,11 +43,11 @@ Navigate to the `helloPush_swift` folder and do the folllowing,
 
 #### Cocoa Pods:
 
-2. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
-3. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
-4. Run the `pod install` command to download and install the required dependencies.
-5. Open the Xcode workspace: `open TestPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
-6. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
+1. If the CocoapPods client is not installed, install it using the following command: `sudo gem install cocoapods`
+2. If the CocoaPods repository is not configured, configure it using the following command: `pod setup`
+3. Run the `pod install` command to download and install the required dependencies.
+4. Open the Xcode workspace: `open TestPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+5. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
 **APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
 
 
@@ -82,6 +83,51 @@ When you run the application, you will see a single view application with a "Reg
 
 When a push notification is received and the application is in the foreground, an alert is displayed showing the notification's content. The application uses the **ApplicationRoute** and **ApplicationID** specified in the AppDelegate to connect to the IBM Push Notification Service on Bluemix. The registration status and other information is displayed  in the Xcode Console 
 
+### Send data to push monitoring dashboard using analytics SDK
+
+Navigate to the `helloPush_swift` folder and do the folllowing,
+
+#### Cocoa Pods:
+
+1. Add ` pod 'BMSAnalytics'` line in the `podfile`
+3. Run the `pod update` command to download and install the required dependencies.
+4. Open the Xcode workspace: `open TestPush.xcworkspace`. From now on, open the xcworkspace file since it contains all the dependencies and configuration.
+5. Open the `AppDelegate.swift` and add the corresponding **APPROUTE** ,
+**APPGUID** and **APPREGION** in the application `didFinishLaunchingWithOptions` method:
+
+#### Carthage :
+
+To install BMSAnalytics using Carthage, add it to your Cartfile: 
+
+```
+github "ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics"
+```
+
+Then run the `carthage update` command. Once the build is finished, drag `BMSPush.framework`, `BMSCore.framework`, `BMSAnalytics.framework` and `BMSAnalyticsAPI.framework` into your Xcode project. 
+
+### Configure for Ananlytics
+
+Import the `BMSAnalytics` to your project file,
+```
+import BMSAnalytics
+
+```
+After initializing BMSpush , add the following lines,
+
+```
+Analytics.initializeWithAppName("appname", apiKey: "apikey", deviceEvents: DeviceEvent.LIFECYCLE)
+
+Analytics.enabled = true
+Logger.logStoreEnabled = true
+Logger.sdkDebugLoggingEnabled = true
+
+Analytics.userIdentity = "Some user name"
+```
+
+To send analytics report to push monitoring dashboard call
+```
+ Analytics.send()
+```
 
 **Note:** This application runs on the latest version of XCode (7.0). The application has been updated to set Enable Bitcode to No in the build-settings as a workaround for the these settings introduced in iOS 9. For more info please see the following blog entry:
 
