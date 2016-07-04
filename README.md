@@ -8,7 +8,7 @@ Use the following steps to configure the helloPush sample for Swift:
 2. [Configure the mobile backend for your helloPush application](#configure-the-mobile-backend-for-your-hellopush-application)
 3. [Configure the front end in the helloPush sample](#configure-the-front-end-in-the-hellopush-sample)
 4. [Run the iOS app](#run-the-ios-app)
-5. [Send Analytics data to push monitoring dashboard](#Send-data-to-push-monitoring-dashboard-using-analytics-SDK)
+5. [Send Analytics data to push monitoring dashboard](#send-data-to-push-monitoring-dashboard-using-analytics-sdk)
 
 
 ### Before you begin
