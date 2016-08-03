@@ -138,11 +138,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "IBM Corp";
 				TargetAttributes = {
 					56B4318D1C72E7A300AE421C = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = PP64RT7P8Z;
+						DevelopmentTeamName = "International Business Machines Corporation";
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -344,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F3C6AC070446711CB7F470A /* Pods-TestPush.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,6 +357,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.test1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -360,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F8640C2408489F5195A98221 /* Pods-TestPush.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -369,6 +375,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.test1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
