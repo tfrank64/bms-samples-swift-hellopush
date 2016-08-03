@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let myBMSClient = BMSClient.sharedInstance
         
-        myBMSClient.initializeWithBluemixAppRoute("APP ROUTE", bluemixAppGUID: "APP ID", bluemixRegion: "REGION")
+        myBMSClient.initializeWithBluemixAppRoute("https://bluepic-unprofessorial-inexpressibility.mybluemix.net", bluemixAppGUID: "e714d3ab-ae18-4afa-8e40-20df4660aad6", bluemixRegion: ".ng.bluemix.net")
         
         myBMSClient.defaultRequestTimeout = 10.0 // seconds
         
@@ -109,10 +109,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application (application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
         
         let push =  BMSPushClient.sharedInstance
-        
+        push.initializeWithAppGUID("e714d3ab-ae18-4afa-8e40-20df4660aad6")
         // MARK:    REGISTERING DEVICE
         
-        push.registerDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
+        push.registerWithDeviceToken(deviceToken) { (response, statusCode, error) -> Void in
             
             if error.isEmpty {
                 
@@ -211,11 +211,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userPayload = additionalPayload!.description
         
         self.showAlert("Recieved Push notifications", message: payLoad, payload: userPayload)
-        
-        
-        let push =  BMSPushClient.sharedInstance
-        
-        push.application(UIApplication.sharedApplication(), didReceiveRemoteNotification: userInfo)
         
     }
     

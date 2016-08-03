@@ -1,0 +1,19 @@
+PODS:
+  - BMSAnalyticsAPI (1.1.0)
+  - BMSCore (1.1.0):
+    - BMSAnalyticsAPI (~> 1.1.0)
+  - BMSPush (1.0.71):
+    - BMSCore (~> 1.0)
+
+DEPENDENCIES:
+  - BMSCore
+  - BMSPush
+
+SPEC CHECKSUMS:
+  BMSAnalyticsAPI: ed1d105a9197a6c875adf5a08aad120351004c40
+  BMSCore: f8213c1adcf15166785cdfee3e7776e879c6ad12
+  BMSPush: c7b8e0e9cd523b9900b94df80fe1de24e1f3f818
+
+PODFILE CHECKSUM: 5f1f6109b41b7b84512a8747ece1ceca2f2ba2b9
+
+COCOAPODS: 1.0.1
